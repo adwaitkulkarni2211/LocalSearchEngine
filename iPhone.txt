@@ -5,6 +5,17 @@ Battery: 3000mAh
 Screen size: 6.52 inch
 MegaPixel: 12MP
 Price: Rs.1,00,000
+
+Customer reviews : 
+"The camera is something I am really invested in, in the iPhone and for good reason. 
+11 Pro max proved its camera abilities to a huge extent." -user9078
+
+"11 Pro Max battery is fantastic,thank you very much though!" -user0007
+
+
+
+#Pixel 4A:pixelphone.txt
+#Redmi Note 9 Pro Max:redmiphone.txt
 x
 iPhone 11 Pro
 Soc: A13 Bionic
@@ -13,6 +24,15 @@ Battery: 3046mAh
 Screen size: 5.8 inch
 MegaPixel: 12MP
 Price: Rs.99,990
+
+Customer reviews : 
+"For this price it should be 4k screen. Not balanced phone." -user8979
+
+"Nice phone" -user5483 
+
+
+#Pixel 4 XL:pixelphone.txt
+#Redmi Note 9 Pro Max:redmiphone.txt
 x
 iPhone 11
 Soc: A13 Bionic
@@ -21,6 +41,15 @@ Battery: 3110mAh
 Screen Size: 6.1 inch
 MegaPixel: 12MP
 Price: Rs.65,000
+
+Customer reviews : 
+"Just hd screen and super overpriced :D I cant understand who can buy this phone." -user5555
+
+"Exccelent balance of practicality and budget." -9967
+
+
+#Pixel 4A:pixelphone.txt
+#Redmi 9:redmiphone.txt
 x
 iPhone XR
 Soc: A12 Bionic
@@ -29,6 +58,16 @@ Battery: 2942mAh
 Screen Size: 6.1 inch
 MegaPixel: 12MP
 Price: Rs.76,000
+
+Customer reviews : 
+"This is honestly the best phone I have ever used and the trade-off of lower screen resolution for 
+better battery life is one that I would make anyday" -use4578
+
+"Go for 11 or 12" user1232
+
+
+#Pixel 4 XL:pixelphone.txt
+#Redmi 9:redmiphone.txt
 x
 iPhone X
 Soc: A11 Bionic
@@ -37,4 +76,13 @@ Battery: 2716mAh
 Screen Size: 5.8 inch
 MegaPixel: 12MP
 Price: Rs.89,990
+
+Customer reviews : 
+"Camera is better than Samsung 9 plus or no" -user9394
+
+"Best phone of the year" -user7878
+
+
+#Pixel 4 XL:pixelphone.txt
+#Redmi Note 9 Pro:redmiphone.txt
 x

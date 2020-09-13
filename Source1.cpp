@@ -5,15 +5,16 @@
 #include<string>
 using namespace std;
 
-void writeToFile(string fileName, string phone, string soc, string ram, string bat, string ss, string mp,string price, string num) {
+void writeToFile(string fileName, string phone, string soc, string ram, string bat, string ss, string mp, string price, string num) {
 	ofstream fout;
 	fout.open(fileName, ios::app);
-	fout << "\n" << phone << soc << ram << bat << ss << mp <<price<< num;
+	fout << "\n" << phone << soc << ram << bat << ss << mp << price << num;
 	fout.close();
 }
 
-void searchPhone(string search, string fileName) {
-	string showPhone = " ", end = "x";
+void searchPhone(string search, string fileName, bool showRelatedPhones) {
+	string showPhone = " ", end = "x", relatedPhones = "";
+	char colon = ':', hash = '#';
 	int isFound = 0;
 	ifstream phoneIn;
 	phoneIn.open(fileName);
@@ -26,13 +27,34 @@ void searchPhone(string search, string fileName) {
 			break;
 		}
 		if (isFound == 1) {
-			for (int i = 0; i < showPhone.size(); i++)
-				cout << showPhone[i];
+			if (showPhone[0] == hash) {
+				if (!showRelatedPhones) {
+					break;
+				}
+				int j = 1;
+				string relatedPhone = "";
+				while (showPhone[j] != colon) {
+					relatedPhone += showPhone[j];
+					j++;
+				}
+				string file = "";
+				for (int k = j + 1; k < showPhone.size(); k++) {
+					file += showPhone[k];
+				}
+				cout << "\n" << "*********** Related phone ***********\n";
+				searchPhone(relatedPhone, file, false);
+			}
+			else {
+				for (int i = 0; i < showPhone.size(); i++) {
+					cout << showPhone[i];
+				}
+			}
 			cout << "\n\n";
 		}
 	}
-	if (isFound == 0)
+	if (isFound == 0) {
 		cout << "Phone not found!";
+	}
 }
 
 int passCheck() {
@@ -61,7 +83,7 @@ int passCheck() {
 }
 
 void addPhone(string allphones, string phonefile, string brandfile) {
-	string phone, soc = "SoC: ", soc1, ram = "Ram: ", ram1, bat = "Battery: ", bat1, ss = "Screen Size: ", ss1, mp = "Megapixel: ", mp1,price="Price: ",price1, num;
+	string phone, soc = "SoC: ", soc1, ram = "Ram: ", ram1, bat = "Battery: ", bat1, ss = "Screen Size: ", ss1, mp = "Megapixel: ", mp1, price = "Price: ", price1, num;
 	cout << "Name of the Phone: ";
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -86,9 +108,9 @@ void addPhone(string allphones, string phonefile, string brandfile) {
 	cout << "Price: ";
 	cin >> price1;
 	price.append(price1.append("\n"));
-	writeToFile(brandfile, phone, "", "", "", "", "","", "");
-	writeToFile(phonefile, phone.append("\n"), soc, ram, bat, ss, mp,price,"x");
-	writeToFile(allphones, phone, soc, ram, bat, ss, mp,price, "x");
+	writeToFile(brandfile, phone, "", "", "", "", "", "", "");
+	writeToFile(phonefile, phone.append("\n"), soc, ram, bat, ss, mp, price, "x");
+	writeToFile(allphones, phone, soc, ram, bat, ss, mp, price, "x");
 }
 
 void deletePhone(string search, string phonefile, string brandfile) {
@@ -112,9 +134,9 @@ void deletePhone(string search, string phonefile, string brandfile) {
 		getline(allIn, showPhone);
 		if (showPhone == search)
 			isFound = 1;
-		if (showPhone == end && isFound == 1) 
+		if (showPhone == end && isFound == 1)
 			isFound = 0;
-		if (isFound == 0) 
+		if (isFound == 0)
 			temp3 << showPhone << "\n";
 	}
 	allIn.close();
@@ -129,9 +151,9 @@ void deletePhone(string search, string phonefile, string brandfile) {
 		getline(phoneIn, showPhone);
 		if (showPhone == search)
 			isFound = 1;
-		if (showPhone == end && isFound == 1) 
+		if (showPhone == end && isFound == 1)
 			isFound = 0;
-		if (isFound == 0) 
+		if (isFound == 0)
 			temp2 << showPhone << "\n";
 	}
 	phoneIn.close();
@@ -160,7 +182,7 @@ void deletePhone(string search, string phonefile, string brandfile) {
 		cout << "\n";
 }
 
-void modPrice(string search,string phonefile) {
+void modPrice(string search, string phonefile) {
 	string showPhone = " ", price = "Price:", newP;
 	int isFound = 0;
 	ifstream phoneIn, allIn;
@@ -178,7 +200,7 @@ void modPrice(string search,string phonefile) {
 			isFound = 1;
 		if (isFound == 1) {
 			for (int i = 0; i < price.size(); i++) {
-				if (showPhone[i] == price[i]) 
+				if (showPhone[i] == price[i])
 					isFound = 2;
 				else {
 					isFound = 1;
@@ -186,7 +208,7 @@ void modPrice(string search,string phonefile) {
 				}
 			}
 		}
-		if (isFound != 2) 
+		if (isFound != 2)
 			temp1 << showPhone << "\n";
 		else
 		{
@@ -200,7 +222,7 @@ void modPrice(string search,string phonefile) {
 	temp1.close();
 	allIn.close();
 	if (remove("allphones.txt") == 0);
-		cout << "\n";
+	cout << "\n";
 	if (rename("temp1.txt", "allphones.txt") == 0)
 		cout << "\n";
 
@@ -214,7 +236,7 @@ void modPrice(string search,string phonefile) {
 			isFound = 1;
 		if (isFound == 1) {
 			for (int i = 0; i < price.size(); i++) {
-				if (showPhone[i] == price[i]) 
+				if (showPhone[i] == price[i])
 					isFound = 2;
 				else {
 					isFound = 1;
@@ -222,7 +244,7 @@ void modPrice(string search,string phonefile) {
 				}
 			}
 		}
-		if (isFound != 2) 
+		if (isFound != 2)
 			temp2 << showPhone << "\n";
 		else {
 			temp2 << "Price:" << newP << "\n";
@@ -233,9 +255,9 @@ void modPrice(string search,string phonefile) {
 	temp2.close();
 	phoneIn.close();
 	if (remove(phone) == 0);
-		cout << "\n";
+	cout << "\n";
 	if (rename("temp2.txt", phone) == 0)
-		cout << "\n";	
+		cout << "\n";
 }
 
 int main() {
@@ -250,7 +272,7 @@ int main() {
 		} while (chk != 1);
 	}
 	if (chk == 1) {
-		cout << "\nSelect 1 or 2: \n1)Search by name \n2)Search by brand \n3)Add Phone \n4)Delete Phone \n5)Modify Price"<< endl;
+		cout << "\nSelect 1 or 2: \n1)Search by name \n2)Search by brand \n3)Add Phone \n4)Delete Phone \n5)Modify Price" << endl;
 		cin >> ch;
 	}
 	else {
@@ -271,7 +293,7 @@ int main() {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		getline(cin, search);
-		searchPhone(search, "allphones.txt");
+		searchPhone(search, "allphones.txt", true);
 		break;
 	}
 	case 2:
@@ -297,15 +319,15 @@ int main() {
 			appleIn.close();
 			int phone; cin >> phone;
 			switch (phone) {
-			case 1:	searchPhone("iPhone 11 Pro Max", "iPhone.txt");
+			case 1:	searchPhone("iPhone 11 Pro Max", "iPhone.txt", true);
 				break;
-			case 2: searchPhone("iPhone 11 Pro", "iPhone.txt");
+			case 2: searchPhone("iPhone 11 Pro", "iPhone.txt", true);
 				break;
-			case 3: searchPhone("iPhone 11", "iPhone.txt");
+			case 3: searchPhone("iPhone 11", "iPhone.txt", true);
 				break;
-			case 4: searchPhone("iPhone XR", "iPhone.txt");
+			case 4: searchPhone("iPhone XR", "iPhone.txt", true);
 				break;
-			case 5: searchPhone("iPhone X", "iPhone.txt");
+			case 5: searchPhone("iPhone X", "iPhone.txt", true);
 				break;
 			default: cout << "\nWorng Choice!";
 				break;
@@ -329,15 +351,15 @@ int main() {
 			googleIn.close();
 			int phone; cin >> phone;
 			switch (phone) {
-			case 1: searchPhone("Pixel 4A", "pixelphone.txt");
+			case 1: searchPhone("Pixel 4A", "pixelphone.txt", true);
 				break;
-			case 2: searchPhone("Pixel 4 XL", "pixelphone.txt");
+			case 2: searchPhone("Pixel 4 XL", "pixelphone.txt", true);
 				break;
-			case 3: searchPhone("Pixel 4", "pixelphone.txt");
+			case 3: searchPhone("Pixel 4", "pixelphone.txt", true);
 				break;
-			case 4: searchPhone("Pixel 3A XL", "pixelphone.txt");
+			case 4: searchPhone("Pixel 3A XL", "pixelphone.txt", true);
 				break;
-			case 5: searchPhone("Pixel 3A", "pixelphone.txt");
+			case 5: searchPhone("Pixel 3A", "pixelphone.txt", true);
 				break;
 			default: cout << "\nWorng Choice!";
 
@@ -361,15 +383,15 @@ int main() {
 			opIn.close();
 			int phone; cin >> phone;
 			switch (phone) {
-			case 1: searchPhone("OnePlus 7", "oneplusphone.txt");
+			case 1: searchPhone("OnePlus 7", "oneplusphone.txt", true);
 				break;
-			case 2: searchPhone("OnePlus 7 Pro", "oneplusphone.txt");
+			case 2: searchPhone("OnePlus 7 Pro", "oneplusphone.txt", true);
 				break;
-			case 3: searchPhone("OnePlus 8", "oneplusphone.txt");
+			case 3: searchPhone("OnePlus 8", "oneplusphone.txt", true);
 				break;
-			case 4: searchPhone("OnePlus 8 Pro", "oneplusphone.txt");
+			case 4: searchPhone("OnePlus 8 Pro", "oneplusphone.txt", true);
 				break;
-			case 5: searchPhone("OnePlus Nord", "oneplusphone.txt");
+			case 5: searchPhone("OnePlus Nord", "oneplusphone.txt", true);
 				break;
 			default: cout << "\nWorng Choice!";
 			}
@@ -393,15 +415,15 @@ int main() {
 			cout << "\n";
 			int phone; cin >> phone;
 			switch (phone) {
-			case 1: searchPhone("Redmi 9", "redmiphone.txt");
+			case 1: searchPhone("Redmi 9", "redmiphone.txt", true);
 				break;
-			case 2: searchPhone("Redmi 9A", "redmiphone.txt");
+			case 2: searchPhone("Redmi 9A", "redmiphone.txt", true);
 				break;
-			case 3: searchPhone("Redmi Note 9", "redmiphone.txt");
+			case 3: searchPhone("Redmi Note 9", "redmiphone.txt", true);
 				break;
-			case 4: searchPhone("Redmi Note 9 Pro", "redmiphone.txt");
+			case 4: searchPhone("Redmi Note 9 Pro", "redmiphone.txt", true);
 				break;
-			case 5: searchPhone("Redmi Note 9 Pro Max", "redmiphone.txt");
+			case 5: searchPhone("Redmi Note 9 Pro Max", "redmiphone.txt", true);
 				break;
 			default: cout << "\nWorng Choice!";
 			}
@@ -425,15 +447,15 @@ int main() {
 			cout << "\n";
 			int phone; cin >> phone;
 			switch (phone) {
-			case 1: searchPhone("Samsung Galaxy S20", "samsungphone.txt");
+			case 1: searchPhone("Samsung Galaxy S20", "samsungphone.txt", true);
 				break;
-			case 2: searchPhone("Samsung Galaxy S20+", "samsungphone.txt");
+			case 2: searchPhone("Samsung Galaxy S20+", "samsungphone.txt", true);
 				break;
-			case 3: searchPhone("Samsung Galaxy Z Fold 2", "samsungphone.txt");
+			case 3: searchPhone("Samsung Galaxy Z Fold 2", "samsungphone.txt", true);
 				break;
-			case 4: searchPhone("Samsung Galaxy M21", "samsungphone.txt");
+			case 4: searchPhone("Samsung Galaxy M21", "samsungphone.txt", true);
 				break;
-			case 5: searchPhone("Samsung Galaxy A31", "samsungphone.txt");
+			case 5: searchPhone("Samsung Galaxy A31", "samsungphone.txt", true);
 				break;
 			default: cout << "\nWorng Choice!";
 			}
@@ -507,30 +529,30 @@ int main() {
 			}
 		}
 		break;
-	} 
-	case 5: 
+	}
+	case 5:
 	{
 		string name, phonefile;
 		cout << "\nEnter the name of the phone you want to update: ";
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		getline(cin, name);
-		searchPhone(name, "allphones.txt");
+		searchPhone(name, "allphones.txt", true);
 		for (int i = 0; i < 5; i++) {
-			if (name[i] == 'i') 
+			if (name[i] == 'i')
 				phonefile = "iPhone.txt";
-			else if (name[i] == 'P') 
+			else if (name[i] == 'P')
 				phonefile == "pixelphone.txt";
-			else if (name[i] == 'O') 
+			else if (name[i] == 'O')
 				phonefile = "oneplusphone.txt";
-			else if (name[i] == 'R') 
+			else if (name[i] == 'R')
 				phonefile = "redmiphone.txt";
-			else if (name[i] == 'S') 
+			else if (name[i] == 'S')
 				phonefile = "samsungphone.txt";
 		}
 		modPrice(name, phonefile);
-		cout<<"\nThe price has been updated successfully."<<endl;
-		searchPhone(name, "allphones.txt");
+		cout << "\nThe price has been updated successfully." << endl;
+		searchPhone(name, "allphones.txt", false);
 		break;
 	}
 	default: cout << "\nWrong Choice!";

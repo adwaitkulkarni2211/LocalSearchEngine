@@ -5,6 +5,16 @@ Battery: 3140mAh
 Screen Size: 5.81 inch
 MegaPixel: 12MP
 Price: Rs.30,000
+
+Customer reviews :
+"Great phone, especially for the price." -user8080
+
+"Any Pixel 4a user experienced any display color issues while looking at the display from corner?" -user4093
+
+
+
+#Samsung Galaxy A31:samsungphone.txt
+#Redmi Note 9:redmiphone.txt
 x
 Pixel 4 XL
 Soc: Snapdragon 855
@@ -13,6 +23,16 @@ Battery: 3700mAh
 Screen Size: 6.3 inch
 MegaPixel: 16MP
 Price: Rs.90,000
+
+Customer reviews :
+"Best Android phone ever made!" -user4444
+
+"Good phone" -user1100
+
+
+
+#Samsung Galaxy M21:samsungphone.txt
+#Oneplus Nord:oneplusphone.txt
 x
 Pixel 4
 Soc: Snapdragon 855
@@ -21,6 +41,16 @@ Battery: 2800mAh
 Screen Size: 5.7 inch
 MegaPixel: 16MP
 Price: Rs.80,000
+
+Customer reviews :
+"Best phone" -user0006
+
+"The google software and a good hardware is a perfect mix." -8908
+
+
+
+#Samsung Galaxy M21:samsungphone.txt
+#Oneplus Nord:oneplusphone.txt
 x
 Pixel 3A XL
 Soc: Snapdragon 845
@@ -29,6 +59,16 @@ Battery: 3430mAh
 Screen Size: 6.3 inch
 MegaPixel: 12MP
 Price: Rs.35,000
+
+Customer reviews :
+"Could have been well designed!" -user1111
+
+"Jaw breaking notch" -user4321
+
+
+
+#Samsung Galaxy A31:samsungphone.txt
+#Oneplus Nord:oneplusphone.txt
 x
 Pixel 3A
 Soc: Snapdragon 670
@@ -37,4 +77,14 @@ Battery: 3000mAh
 Screen Size: 5.6 inch
 MegaPixel: 12MP
 Price: Rs.30,000
+
+Customer reviews :
+"Best mini phone of all time." -user6789
+
+"Practicality and performance alltogether" -user2200
+
+
+
+#Samsung Galaxy A31:samsungphone.txt
+#Oneplus Nord:oneplusphone.txt
 x
