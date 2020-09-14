@@ -212,3 +212,4 @@ Screen Size: 6.4 inch
 MegaPixel: 48MP
 Price: Rs.13,000
 x
+

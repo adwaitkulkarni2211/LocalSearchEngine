@@ -5,13 +5,10 @@ Battery: 3700mAh
 Screen Size: 6.41 inch
 MegaPixel: 48MP
 Price: Rs.33,000
-
 Customer reviews :
 "best phone" -user0001
 
 "Value for money device." -user9000
-
-
 
 #Samsung Galaxy M21:samsungphone.txt
 #Redmi Note 9 Pro Max:redmiphone.txt
@@ -23,16 +20,13 @@ Battery: 4000mAh
 Screen Size: 6.67 inch
 MegaPixel: 48MP
 Price:Rs.39,999
-
 Customer reviews :
 "Love this phone" -user5556
 
 "The 90hz refresh rate :) ." -user2345
 
-
-
 #Samsung Galaxy M21:samsungphone.txt
-#Redmi Note 9 :redmiphone.txt
+#Redmi Note 9:redmiphone.txt
 x
 OnePlus 8
 Soc: Snapdragon 865
@@ -41,13 +35,10 @@ Battery: 4300mAh
 Screen Size: 6.55 inch
 MegaPixel: 48MP
 Price: Rs.42,000
-
 Customer reviews :
 "New flagship" -user2000
 
 "I own this device and would definetly suggest anyone tu buy it." -user9000
-
-
 
 #Samsung Galaxy M21:samsungphone.txt
 #Redmi Note 9 Pro Max:redmiphone.txt
@@ -59,13 +50,10 @@ Battery: 4510mAh
 Screen Size: 6.78 inch
 MegaPixel: 48MP
 Price: Rs.55,000
-
 Customer reviews :
 "Should buy this phone instead of poco f2 pro" -user7000
 
 "If you want 90hz Display go for Op8 pro l." -user5678
-
-
 
 #Samsung Galaxy M21:samsungphone.txt
 #Redmi Note 9:redmiphone.txt
@@ -77,13 +65,10 @@ Battery: 4115mAh
 Screen Size: 6.44 inch
 MegaPixel: 48MP
 Price: Rs.25,000
-
 Customer reviews :
 "Best midranger" -0002
 
 "The blue colour looks fab." -user7000
-
-
 
 #Samsung Galaxy M21:samsungphone.txt
 #Redmi Note 9 Pro Max:redmiphone.txt

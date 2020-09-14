@@ -64,6 +64,13 @@ int passCheck() {
 		ch = _getch();
 		if (ch == 13)
 			break;
+		else if(ch == 8) {
+			if(i > 0) {
+				i--;
+				password[i] = '\0';
+				cout<<"\b \b";
+			}
+		}
 		else {
 			password[i] = ch;
 			_putch('*');
@@ -262,6 +269,7 @@ void modPrice(string search, string phonefile) {
 
 int main() {
 	int ch, flag = 0, pass, chk = 0;
+	char yesOrNo;
 	string adorus;
 	cout << "\nEnter username: ";
 	cin >> adorus;
@@ -271,291 +279,295 @@ int main() {
 			chk = passCheck();
 		} while (chk != 1);
 	}
-	if (chk == 1) {
-		cout << "\nSelect 1 or 2: \n1)Search by name \n2)Search by brand \n3)Add Phone \n4)Delete Phone \n5)Modify Price" << endl;
-		cin >> ch;
-	}
-	else {
-		if (adorus == "user") {
-			cout << "\nSelect 1 or 2: \n1)Search by name \n2)Search by brand" << endl;
+	do { 
+		if (chk == 1) {
+			cout << "\nSelect 1 or 2: \n1)Search by name \n2)Search by brand \n3)Add Phone \n4)Delete Phone \n5)Modify Price" << endl;
 			cin >> ch;
-			if (ch > 2) {
-				cout << "\nWorng choice! Please choose between 1 and 2";
-				return 0;
+		}
+		else {
+			if (adorus == "user") {
+				cout << "\nSelect 1 or 2: \n1)Search by name \n2)Search by brand" << endl;
+				cin >> ch;
+				if (ch > 2) {
+					cout << "\nWorng choice! Please choose between 1 and 2";
+					return 0;
+				}
 			}
 		}
-	}
-	switch (ch) {
-	case 1:
-	{
-		string search;
-		cout << "Enter the name of the phone: ";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		getline(cin, search);
-		searchPhone(search, "allphones.txt", true);
-		break;
-	}
-	case 2:
-	{
-		int brand;
-		cout << "\nChoose from one of the brands listed below. \n1) Apple \n2) Google \n3) OnePlus \n4) Redmi \n5) Samsung" << endl;
-		cin >> brand;
-		switch (brand) {
+		switch (ch) {
 		case 1:
 		{
-			cout << "\nChoose one option:" << endl;
-			ifstream appleIn;
-			string showApple = " ";
-			appleIn.open("apple.txt");
-			int count = 0;
-			while (!appleIn.eof()) {
-				getline(appleIn, showApple);
-				count++;
-				cout << "\n" << count << ") ";
-				for (int i = 0; i < showApple.size(); i++)
-					cout << showApple[i];
-			}
-			appleIn.close();
-			int phone; cin >> phone;
-			switch (phone) {
-			case 1:	searchPhone("iPhone 11 Pro Max", "iPhone.txt", true);
-				break;
-			case 2: searchPhone("iPhone 11 Pro", "iPhone.txt", true);
-				break;
-			case 3: searchPhone("iPhone 11", "iPhone.txt", true);
-				break;
-			case 4: searchPhone("iPhone XR", "iPhone.txt", true);
-				break;
-			case 5: searchPhone("iPhone X", "iPhone.txt", true);
-				break;
-			default: cout << "\nWorng Choice!";
-				break;
-			}
+			string search;
+			cout << "Enter the name of the phone: ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			getline(cin, search);
+			searchPhone(search, "allphones.txt", false);
 			break;
 		}
 		case 2:
 		{
-			cout << "\nChoose one option:" << endl;
-			ifstream googleIn;
-			string showGoogle = " ";
-			googleIn.open("pixel.txt");
-			int count = 0;
-			while (!googleIn.eof()) {
-				getline(googleIn, showGoogle);
-				count++;
-				cout << "\n" << count << ") ";
-				for (int i = 0; i < showGoogle.size(); i++)
-					cout << showGoogle[i];
+			int brand;
+			cout << "\nChoose from one of the brands listed below. \n1) Apple \n2) Google \n3) OnePlus \n4) Redmi \n5) Samsung" << endl;
+			cin >> brand;
+			switch (brand) {
+			case 1:
+			{
+				cout << "\nChoose one option:" << endl;
+				ifstream appleIn;
+				string showApple = " ";
+				appleIn.open("apple.txt");
+				int count = 0;
+				while (!appleIn.eof()) {
+					getline(appleIn, showApple);
+					count++;
+					cout << "\n" << count << ") ";
+					for (int i = 0; i < showApple.size(); i++)
+						cout << showApple[i];
+				}
+				appleIn.close();
+				int phone; cin >> phone;
+				switch (phone) {
+				case 1:	searchPhone("iPhone 11 Pro Max", "iPhone.txt", true);
+					break;
+				case 2: searchPhone("iPhone 11 Pro", "iPhone.txt", true);
+					break;
+				case 3: searchPhone("iPhone 11", "iPhone.txt", true);
+					break;
+				case 4: searchPhone("iPhone XR", "iPhone.txt", true);
+					break;
+				case 5: searchPhone("iPhone X", "iPhone.txt", true);
+					break;
+				default: cout << "\nWorng Choice!";
+					break;
+				}
+				break;
 			}
-			googleIn.close();
-			int phone; cin >> phone;
-			switch (phone) {
-			case 1: searchPhone("Pixel 4A", "pixelphone.txt", true);
-				break;
-			case 2: searchPhone("Pixel 4 XL", "pixelphone.txt", true);
-				break;
-			case 3: searchPhone("Pixel 4", "pixelphone.txt", true);
-				break;
-			case 4: searchPhone("Pixel 3A XL", "pixelphone.txt", true);
-				break;
-			case 5: searchPhone("Pixel 3A", "pixelphone.txt", true);
-				break;
-			default: cout << "\nWorng Choice!";
+			case 2:
+			{
+				cout << "\nChoose one option:" << endl;
+				ifstream googleIn;
+				string showGoogle = " ";
+				googleIn.open("pixel.txt");
+				int count = 0;
+				while (!googleIn.eof()) {
+					getline(googleIn, showGoogle);
+					count++;
+					cout << "\n" << count << ") ";
+					for (int i = 0; i < showGoogle.size(); i++)
+						cout << showGoogle[i];
+				}
+				googleIn.close();
+				int phone; cin >> phone;
+				switch (phone) {
+				case 1: searchPhone("Pixel 4A", "pixelphone.txt", true);
+					break;
+				case 2: searchPhone("Pixel 4 XL", "pixelphone.txt", true);
+					break;
+				case 3: searchPhone("Pixel 4", "pixelphone.txt", true);
+					break;
+				case 4: searchPhone("Pixel 3A XL", "pixelphone.txt", true);
+					break;
+				case 5: searchPhone("Pixel 3A", "pixelphone.txt", true);
+					break;
+				default: cout << "\nWorng Choice!";
 
+				}
+				break;
+			}
+			case 3:
+			{
+				cout << "\nChoose one option:" << endl;
+				ifstream opIn;
+				string showOp = " ";
+				opIn.open("oneplus.txt");
+				int count = 0;
+				while (!opIn.eof()) {
+					getline(opIn, showOp);
+					count++;
+					cout << "\n" << count << ") ";
+					for (int i = 0; i < showOp.size(); i++)
+						cout << showOp[i];
+				}
+				opIn.close();
+				int phone; cin >> phone;
+				switch (phone) {
+				case 1: searchPhone("OnePlus 7", "oneplusphone.txt", true);
+					break;
+				case 2: searchPhone("OnePlus 7 Pro", "oneplusphone.txt", true);
+					break;
+				case 3: searchPhone("OnePlus 8", "oneplusphone.txt", true);
+					break;
+				case 4: searchPhone("OnePlus 8 Pro", "oneplusphone.txt", true);
+					break;
+				case 5: searchPhone("OnePlus Nord", "oneplusphone.txt", true);
+					break;
+				default: cout << "\nWorng Choice!";
+				}
+				break;
+			}
+			case 4:
+			{
+				cout << "\nChoose one option:" << endl;
+				ifstream redmiIn;
+				string showRedmi = " ";
+				redmiIn.open("redmi.txt");
+				int count = 0;
+				while (!redmiIn.eof()) {
+					getline(redmiIn, showRedmi);
+					count++;
+					cout << "\n" << count << ") ";
+					for (int i = 0; i < showRedmi.size(); i++)
+						cout << showRedmi[i];
+				}
+				redmiIn.close();
+				cout << "\n";
+				int phone; cin >> phone;
+				switch (phone) {
+				case 1: searchPhone("Redmi 9", "redmiphone.txt", true);
+					break;
+				case 2: searchPhone("Redmi 9A", "redmiphone.txt", true);
+					break;
+				case 3: searchPhone("Redmi Note 9", "redmiphone.txt", true);
+					break;
+				case 4: searchPhone("Redmi Note 9 Pro", "redmiphone.txt", true);
+					break;
+				case 5: searchPhone("Redmi Note 9 Pro Max", "redmiphone.txt", true);
+					break;
+				default: cout << "\nWorng Choice!";
+				}
+				break;
+			}
+			case 5:
+			{
+				cout << "\nChoose one option:" << endl;
+				ifstream samIn;
+				string showSam = " ";
+				samIn.open("samsung.txt");
+				int count = 0;
+				while (!samIn.eof()) {
+					getline(samIn, showSam);
+					count++;
+					cout << "\n" << count << ") ";
+					for (int i = 0; i < showSam.size(); i++)
+						cout << showSam[i];
+				}
+				samIn.close();
+				cout << "\n";
+				int phone; cin >> phone;
+				switch (phone) {
+				case 1: searchPhone("Samsung Galaxy S20", "samsungphone.txt", true);
+					break;
+				case 2: searchPhone("Samsung Galaxy S20+", "samsungphone.txt", true);
+					break;
+				case 3: searchPhone("Samsung Galaxy Z Fold 2", "samsungphone.txt", true);
+					break;
+				case 4: searchPhone("Samsung Galaxy M21", "samsungphone.txt", true);
+					break;
+				case 5: searchPhone("Samsung Galaxy A31", "samsungphone.txt", true);
+					break;
+				default: cout << "\nWorng Choice!";
+				}
+				break;
 			}
 			break;
+			default: cout << "\nWrong choice.";
+				break;
+			}
 		}
+		break;
 		case 3:
 		{
-			cout << "\nChoose one option:" << endl;
-			ifstream opIn;
-			string showOp = " ";
-			opIn.open("oneplus.txt");
-			int count = 0;
-			while (!opIn.eof()) {
-				getline(opIn, showOp);
-				count++;
-				cout << "\n" << count << ") ";
-				for (int i = 0; i < showOp.size(); i++)
-					cout << showOp[i];
-			}
-			opIn.close();
-			int phone; cin >> phone;
-			switch (phone) {
-			case 1: searchPhone("OnePlus 7", "oneplusphone.txt", true);
+			int phone;
+			cout << "\nWhich brand does the phone belong to?\n1) Apple \n2) Google \n3) OnePlus \n4) Redmi \n5) Smasung" << endl;
+			cin >> phone;
+			switch (phone)
+			{
+			case 1: addPhone("allphones.txt", "iPhone.txt", "apple.txt");
 				break;
-			case 2: searchPhone("OnePlus 7 Pro", "oneplusphone.txt", true);
+			case 2: addPhone("allphones.txt", "pixelphone.txt", "pixel.txt");
 				break;
-			case 3: searchPhone("OnePlus 8", "oneplusphone.txt", true);
+			case 3: addPhone("allphones.txt", "oneplusphone.txt", "oneplus.txt");
 				break;
-			case 4: searchPhone("OnePlus 8 Pro", "oneplusphone.txt", true);
+			case 4: addPhone("allphones.txt", "redmiphone.txt", "redmi.txt");
 				break;
-			case 5: searchPhone("OnePlus Nord", "oneplusphone.txt", true);
+			case 5: addPhone("allphones.txt", "samsungphone.txt", "samsung.txt");
 				break;
-			default: cout << "\nWorng Choice!";
+			default: cout << "\nWrong Choice!";
 			}
 			break;
 		}
 		case 4:
 		{
-			cout << "\nChoose one option:" << endl;
-			ifstream redmiIn;
-			string showRedmi = " ";
-			redmiIn.open("redmi.txt");
-			int count = 0;
-			while (!redmiIn.eof()) {
-				getline(redmiIn, showRedmi);
-				count++;
-				cout << "\n" << count << ") ";
-				for (int i = 0; i < showRedmi.size(); i++)
-					cout << showRedmi[i];
-			}
-			redmiIn.close();
-			cout << "\n";
-			int phone; cin >> phone;
-			switch (phone) {
-			case 1: searchPhone("Redmi 9", "redmiphone.txt", true);
-				break;
-			case 2: searchPhone("Redmi 9A", "redmiphone.txt", true);
-				break;
-			case 3: searchPhone("Redmi Note 9", "redmiphone.txt", true);
-				break;
-			case 4: searchPhone("Redmi Note 9 Pro", "redmiphone.txt", true);
-				break;
-			case 5: searchPhone("Redmi Note 9 Pro Max", "redmiphone.txt", true);
-				break;
-			default: cout << "\nWorng Choice!";
+			string st_del, phonefile, brandfile;
+			char ch;
+			cout << "\nEnter the name of the phone you want to delete: ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			getline(cin, st_del);
+			for (int i = 0; i <= 0; i++) {
+				if (st_del[i] == 'i') {
+					phonefile = "iPhone.txt";
+					brandfile = "apple.txt";
+				}
+				else if (st_del[i] == 'P') {
+					phonefile == "pixelphone.txt";
+					brandfile = "pixel.txt";
+				}
+				else if (st_del[i] == 'O') {
+					phonefile = "oneplusphone.txt";
+					brandfile = "oneplus.txt";
+				}
+				else if (st_del[i] == 'R') {
+					phonefile = "redmiphone.txt";
+					brandfile = "redmi.txt";
+				}
+				else if (st_del[i] == 'S') {
+					phonefile = "samsungphone.txt";
+					brandfile = "samsung.txt";
+				}
+				cout << "\nAre you sure you want to delete this phone record?(y,n): ";
+				cin >> ch;
+				if (ch == 'Y' || ch == 'y') {
+					deletePhone(st_del, phonefile, brandfile);
+					cout << "\nPhone deleted successfully!";
+					break;
+				}
+				else {
+					return 0;
+				}
 			}
 			break;
 		}
 		case 5:
 		{
-			cout << "\nChoose one option:" << endl;
-			ifstream samIn;
-			string showSam = " ";
-			samIn.open("samsung.txt");
-			int count = 0;
-			while (!samIn.eof()) {
-				getline(samIn, showSam);
-				count++;
-				cout << "\n" << count << ") ";
-				for (int i = 0; i < showSam.size(); i++)
-					cout << showSam[i];
+			string name, phonefile;
+			cout << "\nEnter the name of the phone you want to update: ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			getline(cin, name);
+			searchPhone(name, "allphones.txt", false);
+			for (int i = 0; i < 5; i++) {
+				if (name[i] == 'i')
+					phonefile = "iPhone.txt";
+				else if (name[i] == 'P')
+					phonefile == "pixelphone.txt";
+				else if (name[i] == 'O')
+					phonefile = "oneplusphone.txt";
+				else if (name[i] == 'R')
+					phonefile = "redmiphone.txt";
+				else if (name[i] == 'S')
+					phonefile = "samsungphone.txt";
 			}
-			samIn.close();
-			cout << "\n";
-			int phone; cin >> phone;
-			switch (phone) {
-			case 1: searchPhone("Samsung Galaxy S20", "samsungphone.txt", true);
-				break;
-			case 2: searchPhone("Samsung Galaxy S20+", "samsungphone.txt", true);
-				break;
-			case 3: searchPhone("Samsung Galaxy Z Fold 2", "samsungphone.txt", true);
-				break;
-			case 4: searchPhone("Samsung Galaxy M21", "samsungphone.txt", true);
-				break;
-			case 5: searchPhone("Samsung Galaxy A31", "samsungphone.txt", true);
-				break;
-			default: cout << "\nWorng Choice!";
-			}
+			modPrice(name, phonefile);
+			cout << "\nThe price has been updated successfully." << endl;
+			searchPhone(name, "allphones.txt", false);
 			break;
 		}
-		break;
-		default: cout << "\nWrong choice.";
-			break;
-		}
-	}
-	break;
-	case 3:
-	{
-		int phone;
-		cout << "\nWhich brand does the phone belong to?\n1) Apple \n2) Google \n3) OnePlus \n4) Redmi \n5) Smasung" << endl;
-		cin >> phone;
-		switch (phone)
-		{
-		case 1: addPhone("allphones.txt", "iPhone.txt", "apple.txt");
-			break;
-		case 2: addPhone("allphones.txt", "pixelphone.txt", "pixel.txt");
-			break;
-		case 3: addPhone("allphones.txt", "oneplusphone.txt", "oneplus.txt");
-			break;
-		case 4: addPhone("allphones.txt", "redmiphone.txt", "redmi.txt");
-			break;
-		case 5: addPhone("allphones.txt", "samsungphone.txt", "samsung.txt");
-			break;
 		default: cout << "\nWrong Choice!";
 		}
-		break;
-	}
-	case 4:
-	{
-		string st_del, phonefile, brandfile;
-		char ch;
-		cout << "\nEnter the name of the phone you want to delete: ";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		getline(cin, st_del);
-		for (int i = 0; i <= 0; i++) {
-			if (st_del[i] == 'i') {
-				phonefile = "iPhone.txt";
-				brandfile = "apple.txt";
-			}
-			else if (st_del[i] == 'P') {
-				phonefile == "pixelphone.txt";
-				brandfile = "pixel.txt";
-			}
-			else if (st_del[i] == 'O') {
-				phonefile = "oneplusphone.txt";
-				brandfile = "oneplus.txt";
-			}
-			else if (st_del[i] == 'R') {
-				phonefile = "redmiphone.txt";
-				brandfile = "redmi.txt";
-			}
-			else if (st_del[i] == 'S') {
-				phonefile = "samsungphone.txt";
-				brandfile = "samsung.txt";
-			}
-			cout << "\nAre you sure you want to delete this phone record?(y,n): ";
-			cin >> ch;
-			if (ch == 'Y' || ch == 'y') {
-				deletePhone(st_del, phonefile, brandfile);
-				cout << "\nPhone deleted successfully!";
-				break;
-			}
-			else {
-				return 0;
-			}
-		}
-		break;
-	}
-	case 5:
-	{
-		string name, phonefile;
-		cout << "\nEnter the name of the phone you want to update: ";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		getline(cin, name);
-		searchPhone(name, "allphones.txt", true);
-		for (int i = 0; i < 5; i++) {
-			if (name[i] == 'i')
-				phonefile = "iPhone.txt";
-			else if (name[i] == 'P')
-				phonefile == "pixelphone.txt";
-			else if (name[i] == 'O')
-				phonefile = "oneplusphone.txt";
-			else if (name[i] == 'R')
-				phonefile = "redmiphone.txt";
-			else if (name[i] == 'S')
-				phonefile = "samsungphone.txt";
-		}
-		modPrice(name, phonefile);
-		cout << "\nThe price has been updated successfully." << endl;
-		searchPhone(name, "allphones.txt", false);
-		break;
-	}
-	default: cout << "\nWrong Choice!";
-	}
+		cout<<"Do you want to continue? (y/n)";
+		cin>>yesOrNo;
+	}while(yesOrNo == 'y' || yesOrNo == 'Y');
 	return 0;
 }

@@ -5,16 +5,13 @@ Battery: 4000mAh
 Screen Size: 6.2 inch
 MegaPixel: 64MP
 Price: Rs.70,000
-
 Customer reviews :
 "Smartphone of the year." -user7777
 
 "huge battery" -user1313
 
-
-
 #iPhone 11 Pro Max:iphone.txt
-#Pixel 4 XL:pixelphone
+#Pixel 4 XL:pixelphone.txt
 x
 Samsung Galaxy S20+
 Soc: Exynos 990
@@ -23,16 +20,13 @@ Battery: 4500mAh
 Screen Size: 6.7 inch
 MegaPixel: 64MP
 Price: Rs.76,000
-
 Customer reviews :
 "Smartphone of the year." -user7777
 
 "huge battery" -user1313
 
-
-
-#iPhone 11 Pro Max:iphone.txt
-#Pixel 4 XL:pixelphone
+#iPhone 11 Pro Max:iPhone.txt
+#Pixel 4 XL:pixelphone.txt
 x
 Samsung Galaxy Z Fold 2
 Soc: Snapdragon 865+
@@ -41,16 +35,13 @@ Battery: 4500mAh
 Screen Size: 7.6 inch
 MegaPixel: 12MP
 Price: Rs.1,49,000
-
 Customer reviews :
 "Smartphone of the year." -user7767
 
 "Best hinge, much better than last fold." -user1675
 
-
-
-#iPhone 11 Pro Max:iphone.txt
-#Pixel 4 XL:pixelphone
+#iPhone 11 Pro Max:iPhone.txt
+#Pixel 4 XL:pixelphone.txt
 x
 Samsung Galaxy M21
 Soc: Exynos 9611
@@ -59,15 +50,12 @@ Battery: 6000mAh
 Screen Size: 6.4 inch
 MegaPixel: 48MP
 Price: Rs.15,000
-
 Customer reviews :
 "Smartphone for everyone." -user5675
 
 "Nice design." -user1356
 
-
-
-#iPhone 11 Pro Max:iphone.txt
+#iPhone 11 Pro Max:iPhone.txt
 #Redmi Note 9 Pro:redmiphone.txt
 x
 Samsung Galaxy A31
@@ -77,13 +65,10 @@ Battery: 5000mAh
 Screen Size: 6.4 inch
 MegaPixel: 48MP
 Price: Rs.13,000
-
 Customer reviews :
 "Good phone" -user7798
 
 "Nice combination of all the usefull features." -user0000
-
-
 
 #iPhone 11 Pro Max:iphone.txt
 #Redmi Note 9 Pro:redmiphone.txt

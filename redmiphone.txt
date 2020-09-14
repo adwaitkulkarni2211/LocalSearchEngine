@@ -5,16 +5,13 @@ Battery: 5020 mAh
 Screen Size: 6.53 inch
 MegaPixel: 13MP
 Price: Rs.9,000
-
 Customer reviews :
 "Best phone with under 10k budget. " -user7777
 
 "Huge 5020mAh battery" -user5674
 
-
-
 #Samsung Galaxy M21:samsungphone.txt
-#Oneplus Nord:oneplusphone.txt
+#OnePlus Nord:oneplusphone.txt
 x
 Redmi 9A
 Soc: MediaTek Helio G25
@@ -23,16 +20,13 @@ Battery: 5000 mAh
 Screen Size: 6.53 inch
 MegaPixel: 13MP
 Price: Rs.8,000
-
 Customer reviews :
 "Best phone with under 10k budget. " -user7777
 
 "Best phone." -user7770
 
-
-
 #Samsung Galaxy M21:samsungphone.txt
-#Oneplus Nord:oneplusphone.txt
+#OnePlus Nord:oneplusphone.txt
 x
 Redmi Note 9
 Soc:  MediaTek Helio G25
@@ -41,16 +35,13 @@ Battery: 5020 mAh
 Screen Size: 6.53 inch
 MegaPixel: 48MP
 Price: Rs.11,000
-
 Customer reviews :
 "Best phone with under 10k budget. " -user7799
 
 "Best phone." -user7798
 
-
-
 #Samsung Galaxy M21:samsungphone.txt
-#Oneplus Nord:oneplusphone.txt
+#OnePlus Nord:oneplusphone.txt
 x
 Redmi Note 9 Pro
 Soc:  Snapdragon 720G
@@ -59,16 +50,13 @@ Battery: 5020 mAh
 Screen Size: 6.67 inch
 MegaPixel: 64MP
 Price: Rs.14,000
-
 Customer reviews :
 "Best phone for the price." -user7777
 
 "Best phone under budget." -user0008
 
-
-
 #Samsung Galaxy A31:samsungphone.txt
-#Oneplus Nord:oneplusphone.txt
+#OnePlus Nord:oneplusphone.txt
 x
 Redmi Note 9 Pro Max
 Soc:  Snapdragon 720G
@@ -77,14 +65,11 @@ Battery: 5020 mAh
 Screen Size: 6.67 inch
 MegaPixel: 64MP
 Price: Rs.20,000
-
 Customer reviews :
 "Best phone with under 10k budget. " -user9785
 
 "Best phone." -user8586
 
-
-
 #Samsung Galaxy A31:samsungphone.txt
-#Oneplus Nord:oneplusphone.txt
+#OnePlus Nord:oneplusphone.txt
 x
