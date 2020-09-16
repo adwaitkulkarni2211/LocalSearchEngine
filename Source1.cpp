@@ -341,9 +341,17 @@ int main() {
 	int ch, flag = 0, pass, chk = 0;
 	char yesOrNo;
 	string adorus;
-	cout << "\n************* ||PHONE INFO-FINDER|| ************** \n";
+	cout << "\n************************** ||PHONE INFO-FINDER|| *************************** \n";
 	cout << "\nEnter username: ";
 	cin >> adorus;
+	try {
+		if(adorus != "admin" && adorus != "user") {
+			throw (adorus);
+		}
+	} catch(string adorus) {
+		cout<<"\nEnter either 'admin' or 'user'.";
+		return 0;
+	}
 
 	//checking if the user is admin.
 
