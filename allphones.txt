@@ -20,7 +20,7 @@ RAM: 4GB
 Battery: 3110mAh
 Screen Size: 6.1 inch
 MegaPixel: 12MP
-Price: Rs.76,000
+Price: Rs.74,000
 x
 iPhone XR
 Soc: A12 Bionic

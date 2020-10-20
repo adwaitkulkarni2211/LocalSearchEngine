@@ -93,7 +93,7 @@ void searchPhone(string search, string fileName, bool showRelatedPhones) {
 	if(fileName == "allphones.txt")
 		cout << "--------------------------------------------------------------------------\n";
 	if (isFound == 0)
-		cout << "\nPhone not found!";
+		cout << "\nPhone not foundddddddddddddddd!";
 }
 
 //passCheck() checks for the correct password. It displays charaters entered by user in the form of * and returns 1 if the
@@ -344,6 +344,7 @@ int main() {
 	cout << "\n************************** ||PHONE INFO-FINDER|| *************************** \n";
 	cout << "\nEnter username: ";
 	cin >> adorus;
+	//checking for valid username.
 	try {
 		if(adorus != "admin" && adorus != "user") {
 			throw (adorus);
